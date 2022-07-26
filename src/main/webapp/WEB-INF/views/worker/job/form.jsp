@@ -20,11 +20,11 @@
 	<acme:input-textbox code="worker.job.form.label.title" path="title"/>
 	<acme:input-moment code="worker.job.form.label.deadline" path="deadline"/>	
 	<acme:input-money code="worker.job.form.label.salary" path="salary"/>
-	<acme:input-money code="worker.job.form.label.score" path="score"/>
-	<acme:input-url code="worker.job.form.label.more-info" path="moreInfo"/>
+	<acme:input-double code="worker.job.form.label.score" path="score"/>
+	<acme:input-url code="worker.job.form.label.moreInfo" path="moreInfo"/>
 	<acme:input-textarea code="worker.job.form.label.description" path="description"/>
 	
-	<acme:button code="worker.job.form.button.duties" action="/worker/duty/list?masterId=${id}"/>
-	<acme:button code="worker.job.form.button.apply" action="/worker/application/create?masterId=${id}"/>
+	<acme:button code="worker.job.form.button.duties" action="/worker/duty/list?jobId=${id}"/>
+	<acme:button code="worker.job.form.button.apply" action="/worker/application/create?jobId=${id}"/>
 </acme:form>
 

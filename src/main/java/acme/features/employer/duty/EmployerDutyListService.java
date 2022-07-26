@@ -52,34 +52,6 @@ public class EmployerDutyListService implements AbstractListService<Employer, Du
 	}
 
 	@Override
-	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-
-		request.unbind(entity, model, "title", "description", "workLoad", "moreInfo");
-	}
-
-	@Override
-	public void unbind(final Request<Duty> request, final Collection<Duty> list, final Model model) {
-		assert request != null;
-		assert !CollectionHelper.someNull(list);
-		assert model != null;
-
-		int masterId;
-		Job job;
-		boolean draftMode;
-
-		masterId = request.getModel().getInteger("masterId");
-		job = this.repository.findOneJobById(masterId);
-		draftMode = job.isDraftMode();
-
-		AbstractListService.super.unbind(request, list, model);
-		model.setAttribute("masterId", masterId);
-		model.setAttribute("draftMode", draftMode);
-	}
-
-	@Override
 	public Collection<Duty> findMany(final Request<Duty> request) {
 		assert request != null;
 
@@ -90,6 +62,33 @@ public class EmployerDutyListService implements AbstractListService<Employer, Du
 		result = this.repository.findManyDutiesByMasterId(masterId);
 
 		return result;
+	}
+
+	@Override
+	public void unbind(final Request<Duty> request, final Collection<Duty> entities, final Model model) {
+		assert request != null;
+		assert !CollectionHelper.someNull(entities);
+		assert model != null;
+
+		int masterId;
+		Job job;
+		final boolean showCreate;
+
+		masterId = request.getModel().getInteger("masterId");
+		job = this.repository.findOneJobById(masterId);
+		showCreate = (job.isDraftMode() && request.isPrincipal(job.getEmployer()));
+
+		model.setAttribute("masterId", masterId);
+		model.setAttribute("showCreate", showCreate);
+	}
+
+	@Override
+	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "title", "description", "workLoad", "moreInfo");
 	}
 
 }

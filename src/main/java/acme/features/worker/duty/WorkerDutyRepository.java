@@ -27,6 +27,9 @@ public interface WorkerDutyRepository extends AbstractRepository {
 	@Query("select j from Job j where j.id = :masterId")
 	Job findOneJobById(int masterId);
 
+	@Query("select d.job from Duty d where d.id = :masterId")
+	Job findOneJobByDutyId(int masterId);
+
 	@Query("select d from Duty d where d.id = :id")
 	Duty findOneDutyById(int id);
 

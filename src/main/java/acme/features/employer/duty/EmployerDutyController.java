@@ -16,17 +16,18 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.entities.jobs.Duty;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Employer;
 
 @Controller
-@RequestMapping("/employer/duty/")
 public class EmployerDutyController extends AbstractController<Employer, Duty> {
 
 	// Internal state ---------------------------------------------------------
+
+	@Autowired
+	protected EmployerDutyListService	listService;
 
 	@Autowired
 	protected EmployerDutyShowService	showService;
@@ -40,19 +41,16 @@ public class EmployerDutyController extends AbstractController<Employer, Duty> {
 	@Autowired
 	protected EmployerDutyDeleteService	deleteService;
 
-	@Autowired
-	protected EmployerDutyListService	listService;
-
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addCommand("list", this.listService);
 		super.addCommand("show", this.showService);
 		super.addCommand("create", this.createService);
 		super.addCommand("update", this.updateService);
 		super.addCommand("delete", this.deleteService);
-		super.addCommand("list", "list", this.listService);
 	}
 
 }

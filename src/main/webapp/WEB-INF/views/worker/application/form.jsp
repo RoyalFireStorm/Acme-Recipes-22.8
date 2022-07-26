@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:hidden-data path="masterId"/>
+	<acme:hidden-data path="jobId"/>
 
 	<acme:input-textbox code="worker.application.label.reference" path="reference" readonly="true"/>
 	<jstl:if test="${command == 'show'}">
@@ -27,6 +27,6 @@
 	<acme:input-textarea code="worker.application.label.qualifications" path="qualifications"/>
 	<acme:input-textarea code="worker.application.label.skills" path="skills"/>	
 			
-	<acme:submit test="${command == 'create'}" code="worker.application.button.create" action="/worker/application/create"/>		
+	<acme:submit test="${command == 'create'}" code="worker.application.button.create" action="/worker/application/create?jobId=${jobId}"/>		
 </acme:form>
 

@@ -18,12 +18,11 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>Acme-Recipes</name>
-	<description>This is the Acme Recipes project for the students of Design &amp; Testing.</description>
+	<name>Acme Jobs</name>
+	<description>This is the Acme Jobs project for the students of Design &amp; Testing.</description>
 	
-	<groupId>Acme</groupId>
-	<artifactId>Acme-Recipes</artifactId>
-	<version>22.0</version>
+	<artifactId>Acme-Jobs-22.7</artifactId>
+	<version>22.7</version>
 	<packaging>war</packaging>
 
 	<parent>

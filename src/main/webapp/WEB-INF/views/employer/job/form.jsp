@@ -21,11 +21,11 @@
 	<acme:input-moment code="employer.job.form.label.deadline" path="deadline"/>
 	<acme:input-money code="employer.job.form.label.salary" path="salary"/>
 	<acme:input-double code="employer.job.form.label.score" path="score" placeholder="employer.job.form.placeholder.score"/>
-	<acme:input-url code="employer.job.form.label.more-info" path="moreInfo"/>
+	<acme:input-url code="employer.job.form.label.moreInfo" path="moreInfo"/>
 	<acme:input-textarea code="employer.job.form.label.description" path="description"/>
 
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(command, 'show') && draftMode == false}">
+		<jstl:when test="${command == 'show' && draftMode == false}">
 			<acme:button code="employer.job.form.button.duties" action="/employer/duty/list?masterId=${id}"/>			
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && draftMode == true}">
@@ -34,7 +34,7 @@
 			<acme:submit code="employer.job.form.button.delete" action="/employer/job/delete"/>
 			<acme:submit code="employer.job.form.button.publish" action="/employer/job/publish"/>
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(command, 'create')}">
+		<jstl:when test="${command == 'create'}">
 			<acme:submit code="employer.job.form.button.create" action="/employer/job/create"/>
 		</jstl:when>		
 	</jstl:choose>

@@ -18,7 +18,7 @@
 <acme:form>
 	<acme:input-textbox code="worker.duty.form.label.title" path="title"/>
 	<acme:input-textarea code="worker.duty.form.label.description" path="description"/>
-	<acme:input-moment code="worker.duty.form.label.work-load" path="workLoad"/>
+	<acme:input-double code="worker.duty.form.label.workLoad" path="workLoad"/>
 	<acme:input-url code="worker.duty.form.label.moreInfo" path="moreInfo"/>			
 </acme:form>
 

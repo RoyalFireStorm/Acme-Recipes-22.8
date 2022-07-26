@@ -1,5 +1,5 @@
 /*
- * AnonymousDutyShowService.java
+ * AnyDutyShowService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Duty;
+import acme.entities.jobs.Job;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
@@ -36,18 +37,15 @@ public class WorkerDutyShowService implements AbstractShowService<Worker, Duty> 
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		return true;
-	}
+		boolean result;
+		int dutyId;
+		Job job;
 
-	@Override
-	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		dutyId = request.getModel().getInteger("id");
+		job = this.repository.findOneJobByDutyId(dutyId);
+		result = (job != null && !job.isDraftMode());
 
-		request.unbind(entity, model, "title", "description", "workLoad", "moreInfo");
-		model.setAttribute("masterId", entity.getJob().getId());
-		model.setAttribute("draftMode", entity.getJob().isDraftMode());
+		return result;
 	}
 
 	@Override
@@ -61,6 +59,15 @@ public class WorkerDutyShowService implements AbstractShowService<Worker, Duty> 
 		result = this.repository.findOneDutyById(id);
 
 		return result;
+	}
+
+	@Override
+	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "title", "description", "workLoad", "moreInfo");
 	}
 
 }

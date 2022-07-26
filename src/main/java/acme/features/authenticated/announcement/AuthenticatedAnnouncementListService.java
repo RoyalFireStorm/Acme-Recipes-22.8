@@ -44,15 +44,6 @@ public class AuthenticatedAnnouncementListService implements AbstractListService
 	}
 
 	@Override
-	public void unbind(final Request<Announcement> request, final Announcement entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-
-		request.unbind(entity, model, "title", "moment", "status");
-	}
-
-	@Override
 	public Collection<Announcement> findMany(final Request<Announcement> request) {
 		assert request != null;
 
@@ -67,6 +58,15 @@ public class AuthenticatedAnnouncementListService implements AbstractListService
 		result = this.repository.findRecentAnnouncements(deadline);
 
 		return result;
+	}
+
+	@Override
+	public void unbind(final Request<Announcement> request, final Announcement entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "title", "moment", "status");
 	}
 
 }

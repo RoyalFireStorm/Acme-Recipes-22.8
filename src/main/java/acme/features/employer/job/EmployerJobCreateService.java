@@ -45,50 +45,6 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 	}
 
 	@Override
-	public void validate(final Request<Job> request, final Job entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		if (!errors.hasErrors("deadline")) {
-			Calendar calendar;
-			Date minimumDeadline;
-
-			calendar = new GregorianCalendar();
-			calendar.add(Calendar.DAY_OF_MONTH, 7);
-			minimumDeadline = calendar.getTime();
-			errors.state(request, entity.getDeadline().after(minimumDeadline), "deadline", "employer.job.form.error.too-close");
-		}
-
-		if (!errors.hasErrors("reference")) {
-			Job existing;
-
-			existing = this.repository.findOneJobByReference(entity.getReference());
-			errors.state(request, existing == null, "reference", "employer.job.form.error.duplicated");
-		}
-	}
-
-	@Override
-	public void bind(final Request<Job> request, final Job entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		request.bind(entity, errors, "reference", "title", "deadline", "salary");
-		request.bind(entity, errors, "score", "moreInfo", "description");
-	}
-
-	@Override
-	public void unbind(final Request<Job> request, final Job entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-
-		request.unbind(entity, model, "reference", "title", "deadline", "salary");
-		request.unbind(entity, model, "score", "moreInfo", "description", "draftMode");
-	}
-
-	@Override
 	public Job instantiate(final Request<Job> request) {
 		assert request != null;
 
@@ -101,6 +57,52 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		result.setEmployer(employer);
 
 		return result;
+	}
+
+	@Override
+	public void bind(final Request<Job> request, final Job entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors, "reference", "title", "deadline", "salary", "score", "moreInfo", "description");
+	}
+
+	@Override
+	public void validate(final Request<Job> request, final Job entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		if (!errors.hasErrors("reference")) {
+			Job existing;
+
+			existing = this.repository.findOneJobByReference(entity.getReference());
+			errors.state(request, existing == null, "reference", "employer.job.form.error.duplicated");
+		}
+
+		if (!errors.hasErrors("deadline")) {
+			Calendar calendar;
+			Date minimumDeadline;
+
+			calendar = new GregorianCalendar();
+			calendar.add(Calendar.DAY_OF_MONTH, 7);
+			minimumDeadline = calendar.getTime();
+			errors.state(request, entity.getDeadline().after(minimumDeadline), "deadline", "employer.job.form.error.too-close");
+		}
+
+		if (!errors.hasErrors("salary")) {
+			errors.state(request, entity.getSalary().getAmount() > 0, "salary", "employer.job.form.error.negative-salary");
+		}
+	}
+
+	@Override
+	public void unbind(final Request<Job> request, final Job entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "reference", "title", "deadline", "salary", "score", "moreInfo", "description", "draftMode");
 	}
 
 	@Override

@@ -50,11 +50,15 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 	}
 
 	@Override
-	public void validate(final Request<Duty> request, final Duty entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+	public Duty findOne(final Request<Duty> request) {
 
+		Duty result;
+		int id;
+
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneDutyById(id);
+
+		return result;
 	}
 
 	@Override
@@ -67,6 +71,14 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 	}
 
 	@Override
+	public void validate(final Request<Duty> request, final Duty entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+	}
+
+	@Override
 	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
 		assert request != null;
 		assert entity != null;
@@ -75,18 +87,6 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 		request.unbind(entity, model, "title", "description", "workLoad", "moreInfo");
 		model.setAttribute("masterId", entity.getJob().getId());
 		model.setAttribute("draftMode", entity.getJob().isDraftMode());
-	}
-
-	@Override
-	public Duty findOne(final Request<Duty> request) {
-
-		Duty result;
-		int id;
-
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneDutyById(id);
-
-		return result;
 	}
 
 	@Override

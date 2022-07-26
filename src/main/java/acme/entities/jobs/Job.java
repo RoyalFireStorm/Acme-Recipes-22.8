@@ -23,6 +23,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
@@ -48,6 +49,7 @@ public class Job extends AbstractEntity {
 	@Column(unique = true)
 	@NotBlank
 	@Length(min = 5, max = 15)
+	@Pattern(regexp = "^[\\w\\-]+$", message = "{validation.job.reference}")
 	protected String			reference;
 
 	@NotBlank
@@ -62,7 +64,7 @@ public class Job extends AbstractEntity {
 	protected Money				salary;
 
 	@Range(min = 0, max = 100)
-	@Digits(integer = 2, fraction = 2)
+	@Digits(integer = 3, fraction = 2)
 	protected double			score;
 
 	@NotBlank

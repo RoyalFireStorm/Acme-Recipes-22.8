@@ -13,6 +13,7 @@
 package acme.testing.employer.job;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -31,10 +32,12 @@ public class EmployerJobPublishTest extends TestHarness {
 		super.signIn("employer1", "employer1");
 
 		super.clickOnMenu("Employer", "List my jobs");
-
+		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, reference);
+
 		super.clickOnListingRecord(recordIndex);
+		super.checkFormExists();
 		super.clickOnSubmit("Publish");
 		super.checkNotErrorsExist();
 
@@ -43,19 +46,32 @@ public class EmployerJobPublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/employer/job/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(10)
+	@Order(20)
 	public void negativeTest(final int recordIndex, final String reference) {
 		super.signIn("employer1", "employer1");
 
 		super.clickOnMenu("Employer", "List my jobs");
-
+		super.checkListingExists();
 		super.sortListing(0, "asc");
+
 		super.checkColumnHasValue(recordIndex, 0, reference);
 		super.clickOnListingRecord(recordIndex);
+		super.checkFormExists();
 		super.clickOnSubmit("Publish");
 		super.checkAlertExists(false);
 
 		super.signOut();
+	}
+
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		// HINT: the framework doesn't provide enough support to implement this test case,
+		// HINT+ so it must be performed manually:
+		// HINT+ a) publish a job with a role other than "Employer";
+		// HINT+ b) publish an published job that was registered by the principal;
+		// HINT+ c) publish an published job that wasn't registered by the principal;
+		// HINT+ d) publish an unpublished job that wasn't registered by the principal.
 	}
 
 	// Ancillary methods ------------------------------------------------------

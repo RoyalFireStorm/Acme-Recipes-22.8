@@ -50,6 +50,19 @@ public class EmployerDutyDeleteService implements AbstractDeleteService<Employer
 	}
 
 	@Override
+	public Duty findOne(final Request<Duty> request) {
+		assert request != null;
+
+		Duty result;
+		int id;
+
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneDutyById(id);
+
+		return result;
+	}
+
+	@Override
 	public void bind(final Request<Duty> request, final Duty entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
@@ -67,19 +80,6 @@ public class EmployerDutyDeleteService implements AbstractDeleteService<Employer
 		request.unbind(entity, model, "title", "description", "workLoad", "moreInfo");
 		model.setAttribute("masterId", entity.getJob().getId());
 		model.setAttribute("draftMode", entity.getJob().isDraftMode());
-	}
-
-	@Override
-	public Duty findOne(final Request<Duty> request) {
-		assert request != null;
-
-		Duty result;
-		int id;
-
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneDutyById(id);
-
-		return result;
 	}
 
 	@Override

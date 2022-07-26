@@ -13,6 +13,7 @@
 package acme.testing.employer.application;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -31,23 +32,25 @@ public class EmployerApplicationUpdateTest extends TestHarness {
 		super.signIn("employer1", "employer1");
 
 		super.clickOnMenu("Employer", "List my applications");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
 
 		super.checkColumnHasValue(recordIndex, 0, reference);
 
 		super.clickOnListingRecord(recordIndex);
-
+		super.checkFormExists();
 		super.fillInputBoxIn("status", status);
-
 		super.clickOnSubmit("Update");
 
 		super.clickOnMenu("Employer", "List my applications");
-
+		super.checkListingExists();
+		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, reference);
 		super.checkColumnHasValue(recordIndex, 1, status);
 		super.checkColumnHasValue(recordIndex, 2, title);
 
 		super.clickOnListingRecord(recordIndex);
-
+		super.checkFormExists();
 		super.checkInputBoxHasValue("reference", reference);
 		super.checkInputBoxHasValue("moment", moment);
 		super.checkInputBoxHasValue("statement", statement);
@@ -56,6 +59,22 @@ public class EmployerApplicationUpdateTest extends TestHarness {
 		super.checkInputBoxHasValue("status", status);
 
 		super.signOut();
+	}
+
+	@Test
+	@Order(20)
+	public void negativeTest() {
+		// HINT: updating an application means changing its status using a
+		// HINT+ select input box.  There's no means to enter invalid data here.
+	}
+
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		// HINT: the framework doesn't currently provide enough support to hack
+		// HINT+ this feature, so the hacking tests must be performed manually.
+		// HINT+ a) reject an application that was previously accepted;
+		// HINT+ b) accept an application that was previously rejected.
 	}
 
 	// Ancillary methods ------------------------------------------------------

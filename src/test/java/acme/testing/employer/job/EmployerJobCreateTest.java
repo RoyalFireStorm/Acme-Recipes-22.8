@@ -13,6 +13,7 @@
 package acme.testing.employer.job;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -28,12 +29,12 @@ public class EmployerJobCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/employer/job/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String reference, final String title, final String deadline, final String salary, final String score, final String moreInfo, final String description) {
-
 		super.signIn("employer1", "employer1");
 
 		super.clickOnMenu("Employer", "List my jobs");
-		super.clickOnButton("Create");
+		super.checkListingExists();
 
+		super.clickOnButton("Create");
 		super.fillInputBoxIn("reference", reference);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("deadline", deadline);
@@ -44,13 +45,11 @@ public class EmployerJobCreateTest extends TestHarness {
 		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Employer", "List my jobs");
-
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, reference);
 		super.checkColumnHasValue(recordIndex, 1, deadline);
 		super.checkColumnHasValue(recordIndex, 2, title);
-
 		super.clickOnListingRecord(recordIndex);
 
 		super.checkFormExists();
@@ -92,6 +91,24 @@ public class EmployerJobCreateTest extends TestHarness {
 
 		super.checkErrorsExist();
 
+		super.signOut();
+	}
+
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		super.checkNotLinkExists("Account");
+		super.navigate("/employer/job/create");
+		super.checkPanicExists();
+
+		super.signIn("administrator", "administrator");
+		super.navigate("/employer/job/create");
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("worker1", "worker1");
+		super.navigate("/employer/job/create");
+		super.checkPanicExists();
 		super.signOut();
 	}
 

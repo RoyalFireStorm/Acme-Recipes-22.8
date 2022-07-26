@@ -23,7 +23,6 @@ import acme.entities.jobs.Job;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Employer;
 
@@ -46,13 +45,11 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		int masterId;
 		Job job;
 		Employer employer;
-		Principal principal;
 
 		masterId = request.getModel().getInteger("id");
 		job = this.repository.findOneJobById(masterId);
 		employer = job.getEmployer();
-		principal = request.getPrincipal();
-		result = job.isDraftMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		result = job != null && job.isDraftMode() && request.isPrincipal(employer);
 
 		return result;
 	}
@@ -77,7 +74,11 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 			Job existing;
 
 			existing = this.repository.findOneJobByReference(entity.getReference());
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "reference", "employer.job.form.error.duplicated");
+			errors.state(request, existing == null || existing.equals(entity), "reference", "employer.job.form.error.duplicated");
+		}
+		
+		if (!errors.hasErrors("salary")) {
+			errors.state(request, entity.getSalary().getAmount() > 0, "salary", "employer.job.form.error.negative-salary");
 		}
 	}
 
@@ -97,8 +98,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline", "salary");
-		request.unbind(entity, model, "score", "moreInfo", "description", "draftMode");
+		request.unbind(entity, model, "reference", "title", "deadline", "salary", "score", "moreInfo", "description", "draftMode");
 	}
 
 	@Override

@@ -13,6 +13,7 @@
 package acme.testing.employer.job;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -25,28 +26,44 @@ public class EmployerJobListMineTest extends TestHarness {
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/employer/job/list-all.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/employer/job/list-mine-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String reference, final String title, final String deadline, final String salary, final String score, final String moreInfo, final String description) {
+	public void positiveTest(final int recordIndex, final String reference, final String title, final String deadline) {
 		super.signIn("employer1", "employer1");
 
-		super.clickOnMenu("Employer", "List all jobs");
-
+		super.clickOnMenu("Employer", "List my jobs");
+		super.checkListingExists();
 		super.sortListing(0, "asc");
+
 		super.checkColumnHasValue(recordIndex, 0, reference);
 		super.checkColumnHasValue(recordIndex, 1, deadline);
 		super.checkColumnHasValue(recordIndex, 2, title);
+	
+		super.signOut();
+	}
 
-		super.clickOnListingRecord(recordIndex);
+	@Test
+	@Order(20)
+	public void negativeTest() {
+		// HINT: there aren't any negative tests for this feature since it's a listing that
+		// HINT+ doesn't involve entering any data into any forms.
+	}
 
-		super.checkInputBoxHasValue("reference", reference);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("deadline", deadline);
-		super.checkInputBoxHasValue("salary", salary);
-		super.checkInputBoxHasValue("score", score);
-		super.checkInputBoxHasValue("moreInfo", moreInfo);
-		super.checkInputBoxHasValue("description", description);
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		super.checkNotLinkExists("Account");
+		super.navigate("/employer/job/list-mine");
+		super.checkPanicExists();
 
+		super.signIn("administrator", "administrator");
+		super.navigate("/employer/job/list-mine");
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("worker1", "worker1");
+		super.navigate("/employer/job/list-mine");
+		super.checkPanicExists();
 		super.signOut();
 	}
 

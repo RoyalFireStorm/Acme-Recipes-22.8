@@ -22,7 +22,6 @@ import acme.entities.jobs.Job;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractDeleteService;
 import acme.roles.Employer;
 
@@ -45,13 +44,11 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		int masterId;
 		Job job;
 		Employer employer;
-		Principal principal;
 
 		masterId = request.getModel().getInteger("id");
 		job = this.repository.findOneJobById(masterId);
 		employer = job.getEmployer();
-		principal = request.getPrincipal();
-		result = job.isDraftMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		result = job != null && job.isDraftMode() && request.isPrincipal(employer);
 
 		return result;
 	}
@@ -62,8 +59,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "reference", "title", "deadline", "salary");
-		request.bind(entity, errors, "score", "moreInfo", "description");
+		request.bind(entity, errors, "reference", "title", "deadline", "salary", "score", "moreInfo", "description");
 	}
 
 	@Override
@@ -72,8 +68,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline", "salary");
-		request.unbind(entity, model, "score", "moreInfo", "description", "draftMode");
+		request.unbind(entity, model, "reference", "title", "deadline", "salary", "score", "moreInfo", "description", "draftMode");
 	}
 
 	@Override
@@ -103,10 +98,8 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 
 		Collection<Duty> duties;
 
-		duties = this.repository.findManyDutiesByMasterId(entity.getId());
-		for (Duty duty : duties) {
-			this.repository.delete(duty);
-		}
+		duties = this.repository.findManyDutiesByJobId(entity.getId());
+		this.repository.deleteAll(duties);		
 		this.repository.delete(entity);
 	}
 

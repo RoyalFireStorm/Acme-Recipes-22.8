@@ -40,10 +40,10 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select j from Job j where j.draftMode = false and j.deadline > current_timestamp()")
 	Collection<Job> findManyJobsByAvailability();
 
-	@Query("select d from Duty d where d.job.id = :masterId")
-	Collection<Duty> findManyDutiesByMasterId(int masterId);
+	@Query("select d from Duty d where d.job.id = :jobId")
+	Collection<Duty> findManyDutiesByJobId(int jobId);
 
-	@Query("select sum(d.workLoad) from Duty d where d.job.id = :masterId")
-	Double computeWorkLoadByMasterId(int masterId);
+	@Query("select sum(d.workLoad) from Duty d where d.job.id = :jobId")
+	Double computeWorkLoadByJobId(int jobId);
 
 }

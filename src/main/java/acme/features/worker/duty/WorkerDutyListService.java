@@ -21,7 +21,6 @@ import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.helpers.CollectionHelper;
 import acme.framework.services.AbstractListService;
 import acme.roles.Worker;
 
@@ -44,9 +43,22 @@ public class WorkerDutyListService implements AbstractListService<Worker, Duty> 
 		int masterId;
 		Job job;
 
-		masterId = request.getModel().getInteger("masterId");
+		masterId = request.getModel().getInteger("jobId");
 		job = this.repository.findOneJobById(masterId);
-		result = (job != null && (!job.isDraftMode() || request.isPrincipal(job.getEmployer())));
+		result = !job.isDraftMode();
+
+		return result;
+	}
+
+	@Override
+	public Collection<Duty> findMany(final Request<Duty> request) {
+		assert request != null;
+
+		Collection<Duty> result;
+		int masterId;
+
+		masterId = request.getModel().getInteger("jobId");
+		result = this.repository.findManyDutiesByMasterId(masterId);
 
 		return result;
 	}
@@ -58,38 +70,6 @@ public class WorkerDutyListService implements AbstractListService<Worker, Duty> 
 		assert model != null;
 
 		request.unbind(entity, model, "title", "description", "workLoad", "moreInfo");
-	}
-
-	@Override
-	public void unbind(final Request<Duty> request, final Collection<Duty> list, final Model model) {
-		assert request != null;
-		assert !CollectionHelper.someNull(list);
-		assert model != null;
-
-		int masterId;
-		Job job;
-		boolean draftMode;
-
-		masterId = request.getModel().getInteger("masterId");
-		job = this.repository.findOneJobById(masterId);
-		draftMode = job.isDraftMode();
-
-		AbstractListService.super.unbind(request, list, model);
-		model.setAttribute("masterId", masterId);
-		model.setAttribute("draftMode", draftMode);
-	}
-
-	@Override
-	public Collection<Duty> findMany(final Request<Duty> request) {
-		assert request != null;
-
-		Collection<Duty> result;
-		int masterId;
-
-		masterId = request.getModel().getInteger("masterId");
-		result = this.repository.findManyDutiesByMasterId(masterId);
-
-		return result;
 	}
 
 }

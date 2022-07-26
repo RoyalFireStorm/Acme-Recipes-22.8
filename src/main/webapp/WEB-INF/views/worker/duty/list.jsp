@@ -17,5 +17,5 @@
 
 <acme:list>
 	<acme:list-column code="worker.duty.list.label.title" path="title" width="80%"/>	
-	<acme:list-column code="worker.duty.list.label.work-load" path="workLoad" width="20%"/>
+	<acme:list-column code="worker.duty.list.label.workLoad" path="workLoad" width="20%"/>
 </acme:list>

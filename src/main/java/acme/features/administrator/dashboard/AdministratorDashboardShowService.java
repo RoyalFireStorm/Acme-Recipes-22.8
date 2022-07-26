@@ -40,18 +40,6 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 	}
 
 	@Override
-	public void unbind(final Request<Dashboard> request, final Dashboard entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-
-		request.unbind(entity, model, //
-			"averageNumberOfJobsPerEmployer", "averageNumberOfApplicationsPerWorker", // 
-			"avegageNumberOfApplicationsPerEmployer", "ratioOfPendingApplications", //
-			"ratioOfRejectedApplications", "ratioOfAcceptedApplications");
-	}
-
-	@Override
 	public Dashboard findOne(final Request<Dashboard> request) {
 		assert request != null;
 
@@ -79,6 +67,18 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setRatioOfRejectedApplications(ratioOfRejectedApplications);
 
 		return result;
+	}
+
+	@Override
+	public void unbind(final Request<Dashboard> request, final Dashboard entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, //
+			"averageNumberOfJobsPerEmployer", "averageNumberOfApplicationsPerWorker", // 
+			"avegageNumberOfApplicationsPerEmployer", "ratioOfPendingApplications", //
+			"ratioOfRejectedApplications", "ratioOfAcceptedApplications");
 	}
 
 }
