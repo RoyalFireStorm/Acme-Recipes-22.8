@@ -23,7 +23,6 @@ import acme.entities.jobs.Job;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Employer;
 
@@ -43,18 +42,38 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 		assert request != null;
 
 		boolean result;
-		int masterId;
+		int jobId;
 		Job job;
 		Employer employer;
-		Principal principal;
 
-		masterId = request.getModel().getInteger("id");
-		job = this.repository.findOneJobById(masterId);
+		jobId = request.getModel().getInteger("id");
+		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
-		principal = request.getPrincipal();
-		result = job.isDraftMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		result = job != null && job.isDraftMode() && request.isPrincipal(employer);
 
 		return result;
+	}
+
+	@Override
+	public Job findOne(final Request<Job> request) {
+		assert request != null;
+
+		Job result;
+		int id;
+
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneJobById(id);
+
+		return result;
+	}
+
+	@Override
+	public void bind(final Request<Job> request, final Job entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors, "reference", "title", "deadline", "salary", "score", "moreInfo", "description");
 	}
 
 	@Override
@@ -77,25 +96,19 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 			Job existing;
 
 			existing = this.repository.findOneJobByReference(entity.getReference());
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "reference", "employer.job.form.error.duplicated");
+			errors.state(request, existing == null || existing.equals(entity), "reference", "employer.job.form.error.duplicated");
+		}
+		
+		if (!errors.hasErrors("salary")) {
+			errors.state(request, entity.getSalary().getAmount() > 0, "salary", "employer.job.form.error.negative-salary");
 		}
 
 		{
 			Double workLoad;
 
-			workLoad = this.repository.computeWorkLoadByMasterId(entity.getId());
+			workLoad = this.repository.computeWorkLoadByJobId(entity.getId());
 			errors.state(request, workLoad != null && workLoad == 100.0, "*", "employer.job.form.error.bad-work-load");
 		}
-	}
-
-	@Override
-	public void bind(final Request<Job> request, final Job entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		request.bind(entity, errors, "reference", "title", "deadline", "salary");
-		request.bind(entity, errors, "score", "moreInfo", "description");
 	}
 
 	@Override
@@ -104,21 +117,7 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline", "salary");
-		request.unbind(entity, model, "score", "moreInfo", "description", "draftMode");
-	}
-
-	@Override
-	public Job findOne(final Request<Job> request) {
-		assert request != null;
-
-		Job result;
-		int id;
-
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneJobById(id);
-
-		return result;
+		request.unbind(entity, model, "reference", "title", "deadline", "salary", "score", "moreInfo", "description", "draftMode");
 	}
 
 	@Override

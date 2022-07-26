@@ -24,11 +24,11 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface EmployerDutyRepository extends AbstractRepository {
 
-	@Query("select j from Job j where j.id = :masterId")
-	Job findOneJobById(int masterId);
+	@Query("select j from Job j where j.id = :id")
+	Job findOneJobById(int id);
 
-	@Query("select d.job from Duty d where d.id = :masterId")
-	Job findOneJobByDutyId(int masterId);
+	@Query("select d.job from Duty d where d.id = :id")
+	Job findOneJobByDutyId(int id);
 
 	@Query("select d from Duty d where d.id = :id")
 	Duty findOneDutyById(int id);

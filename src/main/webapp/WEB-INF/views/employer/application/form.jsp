@@ -34,7 +34,7 @@
 		</acme:input-select>		
 	</jstl:if>
 			
-	<acme:submit test="${command == 'show' && status == 'PENDING'}" code="employer.application.form.button.update" action="/employer/application/update"/>
+	<acme:submit test="${acme:anyOf(command, 'show, update') && status == 'PENDING'}" code="employer.application.form.button.update" action="/employer/application/update"/>
 </acme:form>
 
 

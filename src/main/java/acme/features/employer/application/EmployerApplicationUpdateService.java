@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Application;
+import acme.entities.jobs.ApplicationStatus;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -43,7 +44,22 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 
 		applicationId = request.getModel().getInteger("id");
 		application = this.repository.findOneApplicationById(applicationId);
-		result = application != null && application.getJob().getEmployer().getId() == request.getPrincipal().getActiveRoleId();
+		result = application != null && //
+			application.getStatus().equals(ApplicationStatus.PENDING) && //
+			request.isPrincipal(application.getJob().getEmployer());
+
+		return result;
+	}
+
+	@Override
+	public Application findOne(final Request<Application> request) {
+		assert request != null;
+
+		Application result;
+		int id;
+
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneApplicationById(id);
 
 		return result;
 	}
@@ -72,19 +88,6 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-	}
-
-	@Override
-	public Application findOne(final Request<Application> request) {
-		assert request != null;
-
-		Application result;
-		int id;
-
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneApplicationById(id);
-
-		return result;
 	}
 
 	@Override

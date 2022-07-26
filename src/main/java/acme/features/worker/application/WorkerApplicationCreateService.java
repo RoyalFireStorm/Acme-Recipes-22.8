@@ -44,35 +44,16 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 
 		boolean result;
-		int masterId;
+		int jobId;
 		Job job;
 		Date currentDate;
 
-		masterId = request.getModel().getInteger("masterId");
-		job = this.repository.findOneJobById(masterId);
+		jobId = request.getModel().getInteger("jobId");
+		job = this.repository.findOneJobById(jobId);
 		currentDate = new Date();
 		result = job != null && !job.isDraftMode() && job.getDeadline().after(currentDate);
 
 		return result;
-	}
-
-	@Override
-	public void bind(final Request<Application> request, final Application entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		request.bind(entity, errors, "reference", "statement", "skills", "qualifications");
-	}
-
-	@Override
-	public void unbind(final Request<Application> request, final Application entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-
-		request.unbind(entity, model, "reference", "statement", "skills", "qualifications");
-		model.setAttribute("masterId", entity.getJob().getId());
 	}
 
 	@Override
@@ -87,7 +68,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		Calendar calendar;
 
 		worker = this.repository.findOneWorkerById(request.getPrincipal().getActiveRoleId());
-		job = this.repository.findOneJobById(request.getModel().getInteger("masterId"));
+		job = this.repository.findOneJobById(request.getModel().getInteger("jobId"));
 		reference = UUID.randomUUID().toString();
 
 		moment = new Date();
@@ -110,10 +91,29 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 	}
 
 	@Override
+	public void bind(final Request<Application> request, final Application entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors, "reference", "statement", "skills", "qualifications");
+	}
+
+	@Override
 	public void validate(final Request<Application> request, final Application entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+	}
+
+	@Override
+	public void unbind(final Request<Application> request, final Application entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "reference", "statement", "skills", "qualifications");
+		model.setAttribute("jobId", entity.getJob().getId());
 	}
 
 	@Override

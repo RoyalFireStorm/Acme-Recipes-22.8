@@ -50,34 +50,6 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 	}
 
 	@Override
-	public void validate(final Request<Duty> request, final Duty entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-	}
-
-	@Override
-	public void bind(final Request<Duty> request, final Duty entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		request.bind(entity, errors, "title", "description", "workLoad");
-	}
-
-	@Override
-	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-
-		request.unbind(entity, model, "title", "description", "workLoad");
-		model.setAttribute("masterId", entity.getJob().getId());
-		model.setAttribute("draftMode", entity.getJob().isDraftMode());
-	}
-
-	@Override
 	public Duty instantiate(final Request<Duty> request) {
 		assert request != null;
 
@@ -95,6 +67,34 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		result.setJob(job);
 
 		return result;
+	}
+
+	@Override
+	public void bind(final Request<Duty> request, final Duty entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors, "title", "description", "workLoad", "moreInfo");
+	}
+
+	@Override
+	public void validate(final Request<Duty> request, final Duty entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+	}
+
+	@Override
+	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "title", "description", "workLoad", "moreInfo");
+		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
+		model.setAttribute("draftMode", entity.getJob().isDraftMode());
 	}
 
 	@Override

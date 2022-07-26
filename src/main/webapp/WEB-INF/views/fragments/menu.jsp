@@ -17,13 +17,16 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:menu-bar code="master.menu.home">
-	<acme:menu-left>
+	<acme:menu-left>		
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.all-jobs" action="/anonymous/job/list"/>			
-			<acme:menu-suboption code="master.menu.anonymous.list-shouts" action="/anonymous/shout/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.all-jobs" action="/any/job/list"/>			
+			<acme:menu-suboption code="master.menu.anonymous.list-shouts" action="/any/shout/list"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.anonymous.all-jobs" action="/any/job/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.anonymous.list-shouts" action="/any/shout/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.announcement.list" action="/authenticated/announcement/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.money-exchage" action="/authenticated/money-exchange/perform"/>
@@ -60,7 +63,7 @@
 		<acme:menu-option code="master.menu.sign-up" action="/anonymous/user-account/create" access="isAnonymous()"/>
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in" access="isAnonymous()"/>
 
-		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
+		<acme:menu-option code="master.menu.user-account" access="isAuthenticated">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.become-employer" action="/authenticated/employer/create" access="!hasRole('Employer')"/>
 			<acme:menu-suboption code="master.menu.user-account.employer" action="/authenticated/employer/update" access="hasRole('Employer')"/>
@@ -68,7 +71,7 @@
 			<acme:menu-suboption code="master.menu.user-account.worker" action="/authenticated/worker/update" access="hasRole('Worker')"/>
 		</acme:menu-option>
 
-		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
+		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated"/>
 	</acme:menu-right>
 </acme:menu-bar>
 

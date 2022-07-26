@@ -42,19 +42,9 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 
 		applicationId = request.getModel().getInteger("id");
 		application = this.repository.findOneApplicationById(applicationId);
-		result = application != null && application.getWorker().getId() == request.getPrincipal().getActiveRoleId();
+		result = application != null && request.isPrincipal(application.getWorker());
 
 		return result;
-	}
-
-	@Override
-	public void unbind(final Request<Application> request, final Application entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-
-		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications");
-		model.setAttribute("masterId", entity.getJob().getId());
 	}
 
 	@Override
@@ -68,6 +58,16 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		result = this.repository.findOneApplicationById(id);
 
 		return result;
+	}
+
+	@Override
+	public void unbind(final Request<Application> request, final Application entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications");
+		model.setAttribute("jobId", entity.getJob().getId());
 	}
 
 }

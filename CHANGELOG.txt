@@ -11,3 +11,10 @@
 Year 2022
 
 22.0	This is a brand new version of Acme Jobs.
+22.1	Minor bug fixes and re-organisation of some files.
+22.2 	Minor bug fixes.
+22.3	Minor bug fixes and improvements. Some features where promoted to the new "Any" role.
+22.4 	The test suite's been enhanced. Minor bugs have been mended.  
+22.5 	The test suite's been enhanced. Minor bugs have been mended.
+22.6 	No significant changes. Minor bugs regarding updating and updating jobs.
+22.7 	No significant changes. Adapted to the new version of the Acme Framework.

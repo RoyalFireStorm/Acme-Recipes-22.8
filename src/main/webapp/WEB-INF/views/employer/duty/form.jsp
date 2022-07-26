@@ -18,16 +18,16 @@
 <acme:form>
 	<acme:input-textbox code="employer.duty.form.label.title" path="title"/>
 	<acme:input-textarea code="employer.duty.form.label.description" path="description"/>
-	<acme:input-double code="employer.duty.form.label.work-load" path="workLoad" placeholder="employer.duty.form.placeholder.work-load"/>
+	<acme:input-double code="employer.duty.form.label.workLoad" path="workLoad" placeholder="employer.duty.form.placeholder.workLoad"/>
 	<acme:input-url code="employer.duty.form.label.moreInfo" path="moreInfo"/>
 	
-	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(command, 'show, update, delete') && draftMode == 'true'}">
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(command, 'show, update, delete') && draftMode == true}">
 			<acme:submit code="employer.duty.form.button.update" action="/employer/duty/update"/>
 			<acme:submit code="employer.duty.form.button.delete" action="/employer/duty/delete"/>
 		</jstl:when>
 		<jstl:when test="${command == 'create'}">
-			<acme:submit code="employer.duty.form.button.create" action="/employer/duty/create"/>
+			<acme:submit code="employer.duty.form.button.create" action="/employer/duty/create?masterId=${masterId}"/>
 		</jstl:when>		
 	</jstl:choose>		
 </acme:form>

@@ -53,7 +53,7 @@ public class Announcement extends AbstractEntity {
 	protected String				text;
 
 	@URL
-	protected String				info;
+	protected String				moreInfo;
 
 	// Derived attributes -----------------------------------------------------
 

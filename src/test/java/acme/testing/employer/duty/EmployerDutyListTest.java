@@ -13,6 +13,7 @@
 package acme.testing.employer.duty;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -25,28 +26,42 @@ public class EmployerDutyListTest extends TestHarness {
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/employer/job/list-all.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/employer/duty/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void listAll(final int recordIndex, final String reference, final String title, final String deadline, final String salary, final String score, final String moreInfo, final String description) {
-		super.signIn("employer2", "employer2");
+	public void positiveTest(final int jobRecordIndex, final String reference, final int dutyRecordIndex, final String title, final String workLoad) {
+		super.signIn("employer1", "employer1");
 
-		super.clickOnMenu("Employer", "List all jobs");
+		super.clickOnMenu("Employer", "List my jobs");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(recordIndex, 0, reference);
-		super.checkColumnHasValue(recordIndex, 1, deadline);
-		super.checkColumnHasValue(recordIndex, 2, title);
-
-		super.clickOnListingRecord(recordIndex);
-
+		super.checkColumnHasValue(jobRecordIndex, 0, reference);
+		super.clickOnListingRecord(jobRecordIndex);
 		super.checkInputBoxHasValue("reference", reference);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("deadline", deadline);
-		super.checkInputBoxHasValue("salary", salary);
-		super.checkInputBoxHasValue("score", score);
-		super.checkInputBoxHasValue("moreInfo", moreInfo);
-		super.checkInputBoxHasValue("description", description);
+		super.clickOnButton("Duties");
 
+		super.checkListingExists();
+		super.checkColumnHasValue(dutyRecordIndex, 0, title);
+		super.checkColumnHasValue(dutyRecordIndex, 1, workLoad);
+		super.clickOnListingRecord(dutyRecordIndex);
+	
 		super.signOut();
+	}
+
+	@Test
+	@Order(20)
+	public void negativeTest() {
+		// HINT: there's no negative test case for this listing, since it doesn't
+		// HINT+ involve filling in any forms.
+	}
+
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		// HINT: the framework doesn't currently provide enough support to hack
+		// HINT+ this feature, so the remaining hacking tests must be performed manually.
+		// HINT+ a) list the duties of a job that is unpublished;
+		// HINT+ b) list the duties of a job that is published, but not available.
 	}
 
 	// Ancillary methods ------------------------------------------------------

@@ -23,7 +23,7 @@
 		<acme:input-option code="IMPORTANT" value="IMPORTANT" selected="${status == 'IMPORTANT'}"/>
 	</acme:input-select>
 	<acme:input-textarea code="administrator.announcement.form.label.text" path="text"/>
-	<acme:input-textbox code="administrator.announcement.form.label.info" path="info"/>
+	<acme:input-url code="administrator.announcement.form.label.moreInfo" path="moreInfo"/>
 	
 	<jstl:if test="${!readonly}">
 		<acme:input-checkbox code="administrator.announcement.form.label.confirmation" path="confirmation"/>

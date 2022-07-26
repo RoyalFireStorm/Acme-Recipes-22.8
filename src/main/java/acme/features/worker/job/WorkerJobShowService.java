@@ -12,6 +12,8 @@
 
 package acme.features.worker.job;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,22 +41,14 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 		boolean result;
 		int masterId;
 		Job job;
+		Date currentMoment;
 
 		masterId = request.getModel().getInteger("id");
 		job = this.repository.findOneById(masterId);
-		result = !job.isDraftMode();
+		currentMoment = new Date();
+		result = !job.isDraftMode() && job.getDeadline().after(currentMoment);
 
 		return result;
-	}
-
-	@Override
-	public void unbind(final Request<Job> request, final Job entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-
-		request.unbind(entity, model, "reference", "title", "deadline", "salary");
-		request.unbind(entity, model, "score", "moreInfo", "description", "draftMode");
 	}
 
 	@Override
@@ -68,6 +62,15 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 		result = this.repository.findOneById(id);
 
 		return result;
+	}
+
+	@Override
+	public void unbind(final Request<Job> request, final Job entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "reference", "title", "deadline", "salary", "score", "moreInfo", "description", "draftMode");
 	}
 
 }

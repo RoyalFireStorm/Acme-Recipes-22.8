@@ -42,16 +42,6 @@ public class EmployerApplicationListService implements AbstractListService<Emplo
 	}
 
 	@Override
-	public void unbind(final Request<Application> request, final Application entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-
-		request.unbind(entity, model, "reference", "status");
-		model.setAttribute("title", entity.getJob().getTitle());
-	}
-
-	@Override
 	public Collection<Application> findMany(final Request<Application> request) {
 		assert request != null;
 
@@ -62,6 +52,15 @@ public class EmployerApplicationListService implements AbstractListService<Emplo
 		result = this.repository.findManyApplicationsByEmployerId(employerId);
 
 		return result;
+	}
+
+	@Override
+	public void unbind(final Request<Application> request, final Application entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "reference", "status", "job.title");
 	}
 
 }

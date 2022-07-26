@@ -89,7 +89,10 @@ public class AuthenticatedMoneyExchangePerformService implements AbstractPerform
 		targetCurrency = request.getModel().getAttribute("targetCurrency", String.class);
 		exchange = this.computeMoneyExchange(source, targetCurrency);
 		errors.state(request, exchange != null, "*", "authenticated.money-exchange.form.label.api-error");
-		if (exchange != null) {
+		if (exchange == null) {
+			entity.setTarget(null);
+			entity.setDate(null);
+		} else {
 			target = exchange.getTarget();
 			entity.setTarget(target);
 			date = exchange.getDate();
