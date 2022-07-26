@@ -1,0 +1,13 @@
+jobRecordIndex,dutyRecordIndex,title,description,work-load,more-info
+5,0,Duty 1,Description 1,100.00,http://www.example.com
+6,0,Duty 2,Description 2,50.00,http://www.example.com
+6,1,Duty 3,Description 3,50.00,http://www.acme.com/master/welcome
+7,0,Duty 4,Description 4,25.00,http://www.acme.org
+7,1,Duty 5,Description 5,25.00,http://localhost
+7,2,Duty 6,Description 6,25.00,
+7,3,Duty 7,Description 7,25.00,
+8,0,Duty 8,Description 8,99.99,
+8,1,Duty 9,Description 9,0.01,
+9,0,Duty 10,Description 10,100.00,
+10,0,Duty 11,Description 11,100.00,
+10,1,Duty 12,Description 12,100.00,
