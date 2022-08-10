@@ -73,7 +73,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		result.setAuthor("John Doe");
 		result.setText("Lorem ipsum!");
 		result.setMoment(moment);
-		result.setInfo("http://example.org");
+		result.setMoreInfo("http://example.org");
 
 		return result;
 	}
