@@ -8,9 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-# master.banner.welcome #######################################################
 
-master.banner.background = #C997D5
 
 # master.menu #################################################################
 
@@ -94,17 +92,6 @@ master.footer.title.languages = Languages
 master.footer.label.english = English
 master.footer.label.spanish = Spanish
 
-# master.company ##############################################################
-
-master.company.title = La compañía
-master.company.text = \
-	Acme, Inc. refers to a holding that is composed of many fictitious companies \
-	that are used in the Design and Testing subject of the Software Engineering \
-	Curriculum of the University of Sevilla.
-master.company.name = Acme Jobs, Inc.
-master.company.address = ETSI Informática, Avda. Reina Mercedes, s/n, Sevilla 41012, Spain
-master.company.phone = +34 123 456
-master.company.email = contact@acme.com
 
 # master.license ##############################################################
 

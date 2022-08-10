@@ -21,6 +21,7 @@
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.all-jobs" action="/any/job/list"/>			
 			<acme:menu-suboption code="master.menu.anonymous.list-shouts" action="/any/shout/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-Alvaro" action="https://twitter.com/home?lang=es"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
