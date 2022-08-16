@@ -44,15 +44,15 @@ public class Bulletin extends AbstractEntity {
 
 	@NotBlank
 	protected String			heading;
-	
-	@NotBlank
-	protected String			writer;
 
 	@NotBlank
 	protected String			text;
 
 	@Email
 	protected String			email;
+	
+	@NotNull
+	protected boolean           critical;
 
 	// Derived attributes -----------------------------------------------------
 
