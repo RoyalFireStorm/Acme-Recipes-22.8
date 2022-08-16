@@ -472,7 +472,7 @@ bg=green</panel_attributes>
       <x>1008</x>
       <y>133</y>
       <w>259</w>
-      <h>77</h>
+      <h>91</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
@@ -482,6 +482,25 @@ Peep
 + heading: String {NotBlank}
 + writer: String {NotBlank}
 + text: String {NotBlank}
++ email: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1008</x>
+      <y>35</y>
+      <w>259</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Bulletin
+--
++ moment: Date {NotNull, Temporal(TIMESTAMP), Past}
++ heading: String {NotBlank}
++ text: String {NotBlank}
++ critical: boolean
 + email: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
