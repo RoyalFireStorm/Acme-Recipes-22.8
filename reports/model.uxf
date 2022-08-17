@@ -214,9 +214,9 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>546</x>
-      <y>7</y>
+      <y>14</y>
       <w>259</w>
-      <h>77</h>
+      <h>70</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
@@ -387,8 +387,8 @@ bg=white
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>434</x>
-      <y>28</y>
+      <x>945</x>
+      <y>532</y>
       <w>21</w>
       <h>49</h>
     </coordinates>
@@ -515,6 +515,26 @@ Bulletin
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
 Ingredient
+--
++ name: String {NotBlank}
++ code: String {Pattern(“^([A-Z]{2}:)?[A-Z]{3}-[0-9]{3}$”)}
++ description: String {NotBlank}
++ retailPrice: Money {Min(0)}
++ link: String {URL}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>952</x>
+      <y>518</y>
+      <w>259</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Utensil
 --
 + name: String {NotBlank}
 + code: String {Pattern(“^([A-Z]{2}:)?[A-Z]{3}-[0-9]{3}$”)}
