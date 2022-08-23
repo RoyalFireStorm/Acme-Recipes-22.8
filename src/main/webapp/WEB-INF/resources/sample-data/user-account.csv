@@ -5,3 +5,9 @@ user-account-employer-03,employer3,employer3,"UserIdentity{name: 'Employer', sur
 user-account-worker-01,worker1,worker1,"UserIdentity{name: 'Worker', surname: 'One', email: 'worker1@mail.com', phone: {country-code: '+28', area-code: '111', number: '1234-5678'} }",true
 user-account-worker-02,worker2,worker2,"UserIdentity{name: 'Worker', surname: 'Two', email: 'worker2@mail.com', phone: {country-code: '+1', area-code: '256', number: '900 123'} }",true
 user-account-worker-03,worker3,worker2,"UserIdentity{name: 'Worker', surname: 'Three', email: 'worker3@mail.com', phone: {country-code: '+4', area-code: null, number: '123456789'} }",true
+user-account-epicure-01,epicure01,epicure01,"UserIdentity{name: 'Epicure', surname: 'One', email: 'epicure1@mail.com', phone: null}",true
+user-account-epicure-02,epicure02,epicure02,"UserIdentity{name: 'Epicure', surname: 'Two', email: 'epicure2@mail.com', phone: null}",true
+user-account-epicure-03,epicure03,epicure03,"UserIdentity{name: 'Epicure', surname: 'Three', email: 'epicure3@mail.com', phone: {country-code: '+5', area-code: null, number: '163456789'}}",true
+user-account-chef-01,chef01,chef01,"UserIdentity{name: 'Chef', surname: 'One', email: 'chef1@mail.com', phone: null}",true
+user-account-chef-02,chef02,chef02,"UserIdentity{name: 'Chef', surname: 'Two', email: 'chef2@mail.com', phone: null}",true
+user-account-chef-03,chef03,chef03,"UserIdentity{name: 'Chef', surname: 'Three', email: 'chef3@mail.com', phone: {country-code: '+3', area-code: '696', number: '780 123'} }}",true

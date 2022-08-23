@@ -1,7 +1,6 @@
 package acme.entities.ingredient;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -36,7 +35,6 @@ public class Ingredient extends AbstractEntity{
 		protected String			description;
 		
 		@NotNull
-		@Min(0)
 		protected Money				retailPrice;
 		
 		@URL

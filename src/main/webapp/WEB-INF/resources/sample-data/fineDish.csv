@@ -1,0 +1,7 @@
+key,status,code,request,budget,startDate,endDate,link,key:epicure,key:chef,key:recipe
+finedish-01,PROPOSED,DF:ASD-123,I will love if you made me this meal,EUR 120.00,2022/10/30 10:00,2022/11/30 22:00,,epicure-01,chef-01,recipe-05
+finedish-02,ACCEPTED,HGF-897,"I admired you a lot, so I would like to taste your carrot salad",USD 15.50,2022/10/15 10:00,2022/11/17 15:00,https://www.onceuponachef.com/recipes/french-grated-carrot-salad.html,epicure-02,chef-02,recipe-02
+finedish-03,ACCEPTED,JKL-001,"Voy a Cadiz el mes que viene,¿puedes hacer tu famoso pescado?",EUR 40.00,2022/09/30 14:00,2022/10/30 16:00,,epicure-03,chef-03,recipe-06
+finedish-04,ACCEPTED,UIO-123,"Although I love the sea, I also like your cuisine so extravagant",GBP 25.00,2022/11/30 14:00,2023/01/30 16:00,,epicure-03,chef-02,recipe-04
+finedish-05,DENIED,QUE-334,¿Me das ketchup?,GBP 0.23,2024/11/30 14:00,2024/12/30 14:00,https://www.heinz.es/salsas/ketchup/product/100194200001/tomato-ketchup,epicure-01,chef-02,recipe-03
+finedish-06,DENIED,LMO-112,Patatas para el camino,USD 7.99,2022/09/30 22:00,2022/11/30 22:00,,epicure-02,chef-01,recipe-01

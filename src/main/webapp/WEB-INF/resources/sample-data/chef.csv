@@ -1,0 +1,4 @@
+key,organisation,assertion,key:userAccount
+chef-01,Meat Lovers,Winner of Best Roast Beef in the World,user-account-chef-01
+chef-02,Vegan power,5 years of experience in the vegan cuisine,user-account-chef-02
+chef-03,Sea Wave,She prepares her own fish that she catches for her most special clients ,user-account-chef-03
