@@ -1,0 +1,16 @@
+key,number,key:utensil,key:recipe
+quantityutensil-01,1,utensil-01,recipe-01
+quantityutensil-02,1,utensil-03,recipe-01
+quantityutensil-03,1,utensil-06,recipe-01
+quantityutensil-04,1,utensil-02,recipe-02
+quantityutensil-05,1,utensil-06,recipe-02
+quantityutensil-06,1,utensil-02,recipe-03
+quantityutensil-07,1,utensil-04,recipe-03
+quantityutensil-08,1,utensil-05,recipe-03
+quantityutensil-09,2,utensil-07,recipe-03
+quantityutensil-10,1,utensil-01,recipe-04
+quantityutensil-11,1,utensil-03,recipe-04
+quantityutensil-12,1,utensil-01,recipe-05
+quantityutensil-13,1,utensil-03,recipe-05
+quantityutensil-14,1,utensil-02,recipe-06
+quantityutensil-15,1,utensil-07,recipe-06

@@ -1,9 +1,6 @@
 package acme.entities.recipe;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -12,8 +9,6 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.ingredient.Ingredient;
-import acme.entities.utensil.Utensil;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -54,10 +49,5 @@ public class Recipe extends AbstractEntity{
 		@Valid
 		@NotNull
 		@ManyToOne(optional=false)
-		protected Ingredient ingredient;
-		
-		@Valid
-		@NotNull
-		@ManyToMany()
-		protected Set<Utensil>  utensil;
+		protected QuantityIngredient quantityIngredient;
 }

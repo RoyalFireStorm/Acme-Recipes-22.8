@@ -41,7 +41,7 @@ public class Memorandum extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp="^([A-Z]{2}:)?[A-Z]{3}-[0-9]{3}$:[0-9]{4}")
+	@Pattern(regexp="^([A-Z]{2}:)?[A-Z]{3}-[0-9]{3}:[0-9]{4}$")
 	protected String			code;
 	
 	@NotNull
@@ -61,6 +61,6 @@ public class Memorandum extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected FineDish				finedish;
+	protected FineDish			finedish;
 
 }
