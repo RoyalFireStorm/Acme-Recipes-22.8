@@ -1,0 +1,28 @@
+# i18n-en.i18n
+#
+# Copyright (C) 2012-2022 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+epicure.epicure-dashboard.form.label.status = and status
+epicure.epicure-dashboard.form.label.colon =:
+
+epicure.epicure-dashboard.form.label.average = Average budget by currency 
+epicure.epicure-dashboard.form.label.deviation = Deviation budget by currency 
+epicure.epicure-dashboard.form.label.max = Maximum budget by currency
+epicure.epicure-dashboard.form.label.min = Minimum budget by currency
+
+epicure.epicure-dashboard.form.label.avgTitle = Averages information, by currency and status.
+epicure.epicure-dashboard.form.label.deviationTitle= Deviation information, by currency and status.
+epicure.epicure-dashboard.form.label.maxTitle= Maximum information, by currency and status.
+epicure.epicure-dashboard.form.label.minTitle= Minimum information, by currency and status.
+epicure.epicure-dashboard.form.label.absoluteTitle = Total Metrics.
+epicure.epicure-dashboard.form.label.noMetric =	 There are no fine dishes to compute metrics.
+
+epicure.epicure-dashboard.form.label.totalNumberOfProposedFineDishes = Total number of proposed fine dish:
+epicure.epicure-dashboard.form.label.totalNumberOfAcceptedFineDishes = Total number of accepted fine dish:
+epicure.epicure-dashboard.form.label.totalNumberOfDeniedFineDishes = Total number of denied fine dish:

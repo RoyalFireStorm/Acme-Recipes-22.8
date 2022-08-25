@@ -52,6 +52,11 @@
 			<acme:menu-separator/>			
 			<acme:menu-suboption code="master.menu.employer.my-applications" action="/employer/application/list"/>			
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.employer" access="hasRole('Epicure')">			
+			<acme:menu-separator/>			
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/epicure/epicure-dashboard/show"/>		
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.worker" access="hasRole('Worker')">
 			<acme:menu-suboption code="master.menu.worker.all-jobs" action="/worker/job/list-all"/>
