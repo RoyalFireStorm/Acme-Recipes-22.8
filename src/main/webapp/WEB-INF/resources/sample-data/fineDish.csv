@@ -5,3 +5,5 @@ finedish-03,ACCEPTED,JKL-001,"Voy a Cadiz el mes que viene,¿puedes hacer tu fam
 finedish-04,ACCEPTED,UIO-123,"Although I love the sea, I also like your cuisine so extravagant",GBP 25.00,2022/11/30 14:00,2023/01/30 16:00,,epicure-03,chef-02,recipe-04
 finedish-05,DENIED,QUE-334,¿Me das ketchup?,GBP 0.23,2024/11/30 14:00,2024/12/30 14:00,https://www.heinz.es/salsas/ketchup/product/100194200001/tomato-ketchup,epicure-01,chef-02,recipe-03
 finedish-06,DENIED,LMO-112,Patatas para el camino,USD 7.99,2022/09/30 22:00,2022/11/30 22:00,,epicure-02,chef-01,recipe-01
+finedish-07,DENIED,LML-113,Pescadito,USD 25.00,2022/09/30 22:00,2022/11/30 22:00,,epicure-03,chef-03,recipe-06
+finedish-08,PROPOSED,DF:ASD-124,"Another request",EUR 150.00,2023/01/01 10:00,2023/02/02 22:00,,epicure-01,chef-01,recipe-05

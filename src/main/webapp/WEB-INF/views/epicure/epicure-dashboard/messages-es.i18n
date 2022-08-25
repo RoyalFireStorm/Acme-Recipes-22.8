@@ -1,0 +1,28 @@
+# i18n-es.i18n
+#
+# Copyright (C) 2012-2022 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+epicure.epicure-dashboard.form.label.status = y estado
+epicure.epicure-dashboard.form.label.colon =:
+
+epicure.epicure-dashboard.form.label.average = Presupuesto medio del presupuesto por divisa 
+epicure.epicure-dashboard.form.label.deviation = Desviación típica del presupuesto por divisa 
+epicure.epicure-dashboard.form.label.max = Presupuesto máximo por divisa
+epicure.epicure-dashboard.form.label.min = Presupuesto mínimo por divisa
+
+epicure.epicure-dashboard.form.label.avgTitle = Información de las medias aritméticas, por divisa y estado.
+epicure.epicure-dashboard.form.label.deviationTitle= Información de las desviaciones típicas, por divisa y estado.
+epicure.epicure-dashboard.form.label.maxTitle= Información de los máximos, por divisa y estado.
+epicure.epicure-dashboard.form.label.minTitle= Información de los mínimas, por divisa y estado.
+epicure.epicure-dashboard.form.label.absoluteTitle = Métricas totales
+epicure.epicure-dashboard.form.label.noMetric =	 No hay platos para calcular métricas.
+
+epicure.epicure-dashboard.form.label.totalNumberOfProposedFineDishes = Total de platos finos en propuesta:
+epicure.epicure-dashboard.form.label.totalNumberOfAcceptedFineDishes = Total de platos finos aceptados:
+epicure.epicure-dashboard.form.label.totalNumberOfDeniedFineDishes = Total de platos finos rechazados:
