@@ -56,9 +56,9 @@ public class EpicureDashboardShowService implements AbstractShowService<Epicure,
 		final Map<Pair<String,String>, Double> minBudgetByCurrencyAndStatus;
 		final Map<Pair<String,String>, Double> maxBudgetByCurrencyAndStatus;
 
-		totalNumberOfProposedFineDishes = this.repository.numberOfProposedFineDishesByStatus();
-		totalNumberOfAcceptedFineDishes = this.repository.numberOfAcceptedFineDishesByStatus();
-		totalNumberOfDeniedFineDishes = this.repository.numberOfDeniedFineDishesByStatus();
+		totalNumberOfProposedFineDishes = this.repository.numberOfProposedFineDishes();
+		totalNumberOfAcceptedFineDishes = this.repository.numberOfAcceptedFineDishes();
+		totalNumberOfDeniedFineDishes = this.repository.numberOfDeniedFineDishes();
 		averageBudgetByCurrencyAndStatus = new HashMap<Pair<String, String>, Double>();
 		deviationBudgetByCurrencyAndStatus = new HashMap<Pair<String, String>, Double>();
 		minBudgetByCurrencyAndStatus = new HashMap<Pair<String, String>, Double>();

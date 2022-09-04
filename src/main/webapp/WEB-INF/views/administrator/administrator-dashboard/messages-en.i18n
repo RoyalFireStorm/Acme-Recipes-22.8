@@ -1,0 +1,37 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2022 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.administrator-dashboard.form.label.Title =Dashboard
+administrator.administrator-dashboard.form.label.totalNumberIngredients =Number of Ingredients
+administrator.administrator-dashboard.form.label.totalNumberUtensils=Number of Utensils
+administrator.administrator-dashboard.form.label.totalNumberOfProposedFineDishes=Number of Proposed Fine Dishes
+administrator.administrator-dashboard.form.label.totalNumberOfAcceptedFineDishes=Number of Accepted Fine Dishes
+administrator.administrator-dashboard.form.label.totalNumberOfDeniedFineDishes=Number of Denied Fine Dishes
+
+administrator.administrator-dashboard.form.label.ingredientTitle=Ingredients Statistics 
+administrator.administrator-dashboard.form.label.averageIngredient=Retail Price Average by 
+administrator.administrator-dashboard.form.label.deviationIngredient=Retail Price Deviation by 
+administrator.administrator-dashboard.form.label.minIngredient=Retail Price Minimum by 
+administrator.administrator-dashboard.form.label.maxIngredient=Retail Price Maximum by 
+
+administrator.administrator-dashboard.form.label.utensilTitle=Kitchen Utensils Statistics
+administrator.administrator-dashboard.form.label.averageUtensil=Retail Price Average by 
+administrator.administrator-dashboard.form.label.deviationUtensil=Retail Price Deviation by 
+administrator.administrator-dashboard.form.label.minUtensil=Retail Price Minimum by 
+administrator.administrator-dashboard.form.label.maxUtensil=Retail Price Maximum by 
+
+administrator.administrator-dashboard.form.label.fineDishTitle=Fine Dishes Budget Statistics
+administrator.administrator-dashboard.form.label.averageFineDish=Average budget by status 
+administrator.administrator-dashboard.form.label.deviationFineDish=Deviation budget by status 
+administrator.administrator-dashboard.form.label.minFineDish=Minimum budget by status 
+administrator.administrator-dashboard.form.label.maxFineDish=Maximum budget by status 
+
+administrator.administrator-dashboard.form.label.noMetric=There are any metrics about this statistic.
+administrator.administrator-dashboard.form.label.colon=:

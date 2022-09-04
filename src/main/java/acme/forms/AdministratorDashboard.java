@@ -13,13 +13,14 @@
 package acme.forms;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Dashboard implements Serializable {
+public class AdministratorDashboard implements Serializable {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -27,12 +28,26 @@ public class Dashboard implements Serializable {
 
 	// Attributes -------------------------------------------------------------
 
-	Double						averageNumberOfJobsPerEmployer;
-	Double						averageNumberOfApplicationsPerWorker;
-	Double						avegageNumberOfApplicationsPerEmployer;
-	Double						ratioOfPendingApplications;
-	Double						ratioOfAcceptedApplications;
-	Double						ratioOfRejectedApplications;
+	Integer totalNumberIngredients;
+	Integer totalNumberUtensils;
+	Integer totalNumberOfProposedFineDishes;
+	Integer totalNumberOfAcceptedFineDishes;
+	Integer totalNumberOfDeniedFineDishes;
+	
+	Map<String, Double> averageRetailPriceByCurrencyIngredient;
+	Map<String, Double> deviationRetailPriceByCurrencyIngredient;
+	Map<String, Double> minRetailPriceByCurrencyIngredient;
+	Map<String, Double> maxRetailPriceByCurrencyIngredient;
+	
+	Map<String, Double> averageRetailPriceByCurrencyUtensil;
+	Map<String, Double> deviationRetailPriceByCurrencyUtensil;
+	Map<String, Double> minRetailPriceByCurrencyUtensil;
+	Map<String, Double> maxRetailPriceByCurrencyUtensil;
+
+	Map<String,Double> averageBudgetByStatusFineDishes;
+	Map<String,Double> deviationBudgetByStatusFineDishes;
+	Map<String,Double> minBudgetByStatusFineDishes;
+	Map<String,Double> maxBudgetByStatusFineDishes;
 
 	// Derived attributes -----------------------------------------------------
 

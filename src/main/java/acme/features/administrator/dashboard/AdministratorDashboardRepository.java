@@ -12,6 +12,8 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -20,22 +22,47 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository {
 
-	@Query("select avg(select count(j) from Job j where j.employer.id = e.id) from Employer e")
-	Double averageNumberOfJobsPerEmployer();
-
-	@Query("select avg(select count(a) from Application a where a.worker.id = w.id) from Worker w")
-	Double averageNumberOfApplicationsPerWorker();
-
-	@Query("select avg(select count(a) from Application a where exists(select j from Job j where j.employer.id = e.id and a.job.id = j.id)) from Employer e")
-	Double averageNumberOfApplicationsPerEmployer();
-
-	@Query("select 1.0 * count(a) / (select count(b) from Application b) from Application a where a.status = acme.entities.jobs.ApplicationStatus.PENDING")
-	Double ratioOfPendingApplications();
-
-	@Query("select 1.0 * count(a) / (select count(b) from Application b) from Application a where a.status = acme.entities.jobs.ApplicationStatus.ACCEPTED")
-	Double ratioOfAcceptedApplications();
-
-	@Query("select 1.0 * count(a) / (select count(b) from Application b) from Application a where a.status = acme.entities.jobs.ApplicationStatus.REJECTED")
-	Double ratioOfRejectedApplications();
-
+	@Query("select count(a) from FineDish a where a.status = acme.entities.finedish.DishStatus.PROPOSED")
+	Integer numberOfProposedFineDishes();
+	@Query("select count(a) from FineDish a where a.status = acme.entities.finedish.DishStatus.ACCEPTED")
+	Integer numberOfAcceptedFineDishes();
+	@Query("select count(a) from FineDish a where a.status = acme.entities.finedish.DishStatus.DENIED")
+	Integer numberOfDeniedFineDishes();
+	@Query("select count(a) from Ingredient a")
+	Integer numberIngredients();
+	@Query("select count(a) from Utensil a")
+	Integer numberUtensils();
+	
+	@Query("select a.retailPrice.currency, avg(a.retailPrice.amount) from Ingredient a group by a.retailPrice.currency")
+	List<String> averageRetailPriceByCurrencyIngredient();
+	@Query("select a.retailPrice.currency, stddev(a.retailPrice.amount) from Ingredient a group by a.retailPrice.currency")
+	List<String> deviationRetailPriceByCurrencyIngredient();
+	@Query("select a.retailPrice.currency, min(a.retailPrice.amount) from Ingredient a group by a.retailPrice.currency")
+	List<String> minRetailPriceByCurrencyIngredient();
+	@Query("select a.retailPrice.currency, max(a.retailPrice.amount) from Ingredient a group by a.retailPrice.currency")
+	List<String> maxRetailPriceByCurrencyIngredient();
+	
+	@Query("select a.retailPrice.currency, avg(a.retailPrice.amount) from Utensil a group by a.retailPrice.currency")
+	List<String> averageRetailPriceByCurrencyUtensil();
+	@Query("select a.retailPrice.currency, stddev(a.retailPrice.amount) from Utensil a group by a.retailPrice.currency")
+	List<String> deviationRetailPriceByCurrencyUtensil();
+	@Query("select a.retailPrice.currency, min(a.retailPrice.amount) from Utensil a group by a.retailPrice.currency")
+	List<String> minRetailPriceByCurrencyUtensil();
+	@Query("select a.retailPrice.currency, max(a.retailPrice.amount) from Utensil a group by a.retailPrice.currency")
+	List<String> maxRetailPriceByCurrencyUtensil();
+	
+	//TODO: GroupBy Currency when Money Exchange Implements
+	@Query("select a.status, avg(a.budget.amount) from FineDish a group by a.status")
+	List<String> averageBudgetByCurrencyFineDish();
+	@Query("select a.status, stddev(a.budget.amount) from FineDish a group by a.status")
+	List<String> deviationBudgetByCurrencyFineDish();
+	@Query("select a.status, min(a.budget.amount) from FineDish a group by a.status")
+	List<String> minBudgetByCurrencyFineDish();
+	@Query("select a.status, max(a.budget.amount) from FineDish a group by a.status")
+	List<String> maxBudgetByCurrencyFineDish();
+	
+	
+	
+	
+	
 }
