@@ -1,0 +1,37 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2022 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.administrator-dashboard.form.label.Title =Panel de estadística
+administrator.administrator-dashboard.form.label.totalNumberIngredients =Número de Ingredientes
+administrator.administrator-dashboard.form.label.totalNumberUtensils=Número de Utensilios de Cocina
+administrator.administrator-dashboard.form.label.totalNumberOfProposedFineDishes=Número de Platos Propuestos
+administrator.administrator-dashboard.form.label.totalNumberOfAcceptedFineDishes=Número de Platos Aceptados
+administrator.administrator-dashboard.form.label.totalNumberOfDeniedFineDishes=Número de Platos Denegados
+
+administrator.administrator-dashboard.form.label.ingredientTitle=Estadística de Ingredientes 
+administrator.administrator-dashboard.form.label.averageIngredient=Precio de venta al público promedio por 
+administrator.administrator-dashboard.form.label.deviationIngredient=Desviación típica del precio de venta al público por 
+administrator.administrator-dashboard.form.label.minIngredient=Precio de venta al público mínimo por 
+administrator.administrator-dashboard.form.label.maxIngredient=Precio de venta al público máximo por 
+
+administrator.administrator-dashboard.form.label.utensilTitle=Estadística de Utensilios de Cocina
+administrator.administrator-dashboard.form.label.averageUtensil=Precio de venta al público medio por  
+administrator.administrator-dashboard.form.label.deviationUtensil=Desviación típica de precio de venta al público por 
+administrator.administrator-dashboard.form.label.minUtensil=Precio de venta al público mínimo por 
+administrator.administrator-dashboard.form.label.maxUtensil=Precio de venta al público máximo por 
+
+administrator.administrator-dashboard.form.label.fineDishTitle=Estadística de presupuesto de platos
+administrator.administrator-dashboard.form.label.averageFineDish=Media de presupuesto por estado  
+administrator.administrator-dashboard.form.label.deviationFineDish=Desviación típica de presupuesto por estado  
+administrator.administrator-dashboard.form.label.minFineDish=Mínimo de presupuesto por estado  
+administrator.administrator-dashboard.form.label.maxFineDish=Máximo de presupuesto por estado  
+
+administrator.administrator-dashboard.form.label.noMetric=No hay métricas sobre esta estadística.
+administrator.administrator-dashboard.form.label.colon=:

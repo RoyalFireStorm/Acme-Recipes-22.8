@@ -23,11 +23,11 @@ import acme.framework.repositories.AbstractRepository;
 public interface EpicureDashboardRepository extends AbstractRepository {
 
 	@Query("select count(a) from FineDish a where a.status = acme.entities.finedish.DishStatus.PROPOSED")
-	Integer numberOfProposedFineDishesByStatus();
+	Integer numberOfProposedFineDishes();
 	@Query("select count(a) from FineDish a where a.status = acme.entities.finedish.DishStatus.ACCEPTED")
-	Integer numberOfAcceptedFineDishesByStatus();
+	Integer numberOfAcceptedFineDishes();
 	@Query("select count(a) from FineDish a where a.status = acme.entities.finedish.DishStatus.DENIED")
-	Integer numberOfDeniedFineDishesByStatus();
+	Integer numberOfDeniedFineDishes();
 
 	@Query("select avg(a.budget.amount), a.budget.currency, a.status from FineDish a group by a.budget.currency, a.status")
 	List<String> averageBudgetByCurrencyAndStatus();
@@ -37,9 +37,6 @@ public interface EpicureDashboardRepository extends AbstractRepository {
 	List<String> minBudgetByCurrencyAndStatus();
 	@Query("select max(a.budget.amount), a.budget.currency, a.status from FineDish a group by a.budget.currency, a.status")
 	List<String> maxBudgetByCurrencyAndStatus();	
-	@Query("select a.budget.currency from FineDish a")
-	List<String> getAllCurrencies();	
-	@Query("select a.status from FineDish a")
-	List<Integer> getAllStatus();
+	
 
 }
