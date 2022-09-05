@@ -1,7 +1,8 @@
 key,moment,heading,text,critical,email
-bulletin-01,2022/08/13 19:39,I'm happy!, Today is my birthday!,true,
-bulletin-02,2022/08/09 15:55,YES,I'm the master of my room!,false,
-bulletin-03,2022/08/07 00:00,Listen!,Just turning 50!,false,foobar@gmail.com
-bulletin-04,2022/08/18 00:00,Woa!,This app's so cool!,true,lesliethebest@outlook.com
-bulletin-05,2022/08/18 00:00,First time,Hello world!,false,silverj@gmail.com
+bulletin-01,2022/08/13 19:39,I'm happy!,Today is my first day of work!,false,hipeople@mail.com
+bulletin-02,2022/08/09 15:55,Working,I'm the master of my room!,false,
+bulletin-03,2022/08/07 00:00,Listen!,Everyone need to wash their hands first!,true,foobar@gmail.com
+bulletin-04,2022/08/18 00:00,Woa!,This app's so cool!,false,lesliethebest@outlook.com
+bulletin-05,2022/08/18 00:00,First time,How can I start cooking?,true,silverj@gmail.com
 bulletin-06,2022/08/19 00:00,Mmmmm,Is this working properly?,false,
+bulletin-07,2022/09/01 00:01,Remember,Clean the kitchen before leaving!,true,
