@@ -1,0 +1,2 @@
+key,acceptedCurrencies,systemCurrency,spamThreshold
+systemconfigurator-01,"USD,EUR,GBP",EUR,0.10
