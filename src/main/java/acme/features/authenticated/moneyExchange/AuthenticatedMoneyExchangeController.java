@@ -34,7 +34,7 @@ public class AuthenticatedMoneyExchangeController extends AbstractController<Aut
 
 	@PostConstruct
 	protected void initialise() {
-		super.addCommand("perform", this.exchangeService);
+		// super.addCommand("perform", this.exchangeService);
 	}
 
 }
