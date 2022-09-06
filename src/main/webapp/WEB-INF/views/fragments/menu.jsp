@@ -17,7 +17,8 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:menu-bar code="master.menu.home">
-	<acme:menu-left>		
+	<acme:menu-left>
+		<acme:menu-option code="master.menu.any.user-account.list" action="/any/user-account/list"/>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-Alvaro" action="https://twitter.com/home?lang=es"/>
 		</acme:menu-option>
