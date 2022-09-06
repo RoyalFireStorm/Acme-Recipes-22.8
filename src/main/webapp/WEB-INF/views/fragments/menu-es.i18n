@@ -15,8 +15,12 @@ master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
-# master.menu.anonymous #######################################################
+# master.menu.any #######################################################
+master.menu.any.product=Productos
+master.menu.any.user-account.list = Cuentas de Usuario
+master.menu.any.utensil=Lista de utensilios de cocina
 
+# master.menu.anonymous #######################################################
 master.menu.anonymous = Anónimo
 master.menu.anonymous.all-jobs = Ver trabajos
 master.menu.anonymous.list-shouts = Ver gritos
