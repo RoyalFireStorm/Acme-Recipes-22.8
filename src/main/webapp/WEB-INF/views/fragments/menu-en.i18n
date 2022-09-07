@@ -55,6 +55,7 @@ master.menu.authenticated = Authenticated
 master.menu.authenticated.announcement.list = List announcements
 master.menu.authenticated.money-exchage = Money exchange
 master.menu.authenticated.bulletin.list=List bulletin
+master.menu.authenticated.system-configurator.show=Currency
 
 # master.menu.employer ########################################################
 
@@ -62,6 +63,10 @@ master.menu.employer = Employer
 master.menu.employer.all-jobs = List all jobs
 master.menu.employer.my-jobs = List my jobs
 master.menu.employer.my-applications = List my applications
+
+# master.menu.epicure ########################################################
+master.menu.epicure=Epicure
+master.menu.epicure.dashboard = Dashboard
 
 # master.menu.worker ##########################################################
 
