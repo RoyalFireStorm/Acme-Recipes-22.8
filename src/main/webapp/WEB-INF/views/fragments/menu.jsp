@@ -23,6 +23,8 @@
 		<acme:menu-option code="master.menu.any.product" >
 			<acme:menu-suboption code="master.menu.any.utensil" action="/any/utensil/list"/>
 			<acme:menu-suboption code="master.menu.any.ingredient" action="/any/ingredient/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.any.recipeList" action="/any/recipe/list-all"/>
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-Alvaro" action="https://twitter.com/home?lang=es"/>

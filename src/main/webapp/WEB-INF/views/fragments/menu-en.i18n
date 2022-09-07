@@ -21,7 +21,7 @@ master.menu.any.user-account.list = User accounts
 master.menu.any.utensil=Kitchen Utensils list
 master.menu.any.ingredient=Ingredients list
 master.menu.any.peep.list = Peep list
-
+master.menu.any.recipeList=Recipe list
 # master.menu.anonymous #######################################################
 master.menu.anonymous = Anonymous
 master.menu.anonymous.all-jobs = List jobs
