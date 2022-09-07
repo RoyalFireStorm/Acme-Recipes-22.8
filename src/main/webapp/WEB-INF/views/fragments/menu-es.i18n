@@ -33,6 +33,7 @@ master.menu.anonymous.favourite-link-Alvaro = 49030430L: Sanchez Gonzalez, Alvar
 master.menu.authenticated = Autentificado
 master.menu.authenticated.announcement.list = Ver anuncios
 master.menu.authenticated.money-exchage = Cambio de dinero
+master.menu.authenticated.bulletin.list=Lista de boletines
 
 # master.menu.administrator ###################################################
 
