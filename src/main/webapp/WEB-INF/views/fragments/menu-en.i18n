@@ -19,6 +19,7 @@ master.menu.sign-out = Sign out
 master.menu.any.product=Products
 master.menu.any.user-account.list = User accounts
 master.menu.any.utensil=Kitchen Utensils list
+master.menu.any.ingredient=Ingredients list
 
 # master.menu.anonymous #######################################################
 master.menu.anonymous = Anonymous
