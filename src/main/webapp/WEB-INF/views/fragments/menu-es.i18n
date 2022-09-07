@@ -41,6 +41,12 @@ master.menu.authenticated.system-configurator.show=Divisa
 master.menu.epicure=Sibarita
 master.menu.epicure.dashboard = Dashboard
 
+# master.menu.chef ########################################################
+master.menu.chef=Cocinero
+master.menu.chef.ingredients=Tus ingredientes
+master.menu.chef.utensils=Tus utensilios
+master.menu.chef.recipes=Tus recetas
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
