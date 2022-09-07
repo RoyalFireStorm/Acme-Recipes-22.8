@@ -43,9 +43,8 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.employer" access="hasRole('Epicure')">			
-			<acme:menu-separator/>			
-			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/epicure/epicure-dashboard/show"/>		
+		<acme:menu-option code="master.menu.epicure" access="hasRole('Epicure')">						
+			<acme:menu-suboption code="master.menu.epicure.dashboard" action="/epicure/epicure-dashboard/show"/>		
 		</acme:menu-option>
 
 	</acme:menu-left>
@@ -55,6 +54,7 @@
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in" access="isAnonymous()"/>
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated">
+			<acme:menu-suboption code="master.menu.authenticated.system-configurator.show" action="/authenticated/system-configurator/show"/>
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 		</acme:menu-option>
 

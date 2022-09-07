@@ -34,6 +34,11 @@ master.menu.authenticated = Autentificado
 master.menu.authenticated.announcement.list = Ver anuncios
 master.menu.authenticated.money-exchage = Cambio de dinero
 master.menu.authenticated.bulletin.list=Lista de boletines
+master.menu.authenticated.system-configurator.show=Divisa
+
+# master.menu.epicure ########################################################
+master.menu.epicure=Sibarita
+master.menu.epicure.dashboard = Dashboard
 
 # master.menu.administrator ###################################################
 
