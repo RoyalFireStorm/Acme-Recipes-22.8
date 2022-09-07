@@ -1,7 +1,7 @@
-key,code,heading,description,notes,link,key:quantityIngredient
-recipe-01,XDF-025,Patatas gajo al horno,Deliciosas patatas sin usar freidora.,Echa un pelin de aceite a la fuente para que no se peguen las patatas,,quantityingredient-01
-recipe-02,BDG-022,Carrot Salad,Delicious salad to accompany any dish,Don't use too much vinegar.,https://www.onceuponachef.com/recipes/french-grated-carrot-salad.html,quantityingredient-02
-recipe-03,TT:ZXC-023,Ketchup casero,Prepara tu propia salsa para que sea mas barata y nutritiva,Echa el azúcar al gusto,,quantityingredient-03
-recipe-04,TT:LSM-021,Piña asada,Una forma diferente y muy rica de disfrutar de esta fruta.,Quitar la piel con cuidado de no llevarnos mucho fruto,https://www.bigbasket.com/pd/10000156/fresho-pineapple-1-pc/,quantityingredient-04
-recipe-05,CJA-011,Chicken Wings,The all-known meat flavour!,"Check the chicken from time to time, don't burn it!",,quantityingredient-05
-recipe-06,FSH-001,Tuna,From he ocean to your table,"Cook the fish over low heat for half an hour, it will be delicious",,quantityingredient-06
+key,code,heading,description,notes,link,key:quantityIngredient,key:chef
+recipe-01,XDF-025,Patatas gajo al horno,Deliciosas patatas sin usar freidora.,Echa un pelin de aceite a la fuente para que no se peguen las patatas,,quantityingredient-01,chef-01
+recipe-02,BDG-022,Carrot Salad,Delicious salad to accompany any dish,Don't use too much vinegar.,https://www.onceuponachef.com/recipes/french-grated-carrot-salad.html,quantityingredient-02,chef-02
+recipe-03,TT:ZXC-023,Ketchup casero,Prepara tu propia salsa para que sea mas barata y nutritiva,Echa el azúcar al gusto,,quantityingredient-03,chef-03
+recipe-04,TT:LSM-021,Piña asada,Una forma diferente y muy rica de disfrutar de esta fruta.,Quitar la piel con cuidado de no llevarnos mucho fruto,https://www.bigbasket.com/pd/10000156/fresho-pineapple-1-pc/,quantityingredient-04,chef-02
+recipe-05,CJA-011,Chicken Wings,The all-known meat flavour!,"Check the chicken from time to time, don't burn it!",,quantityingredient-05,chef-01
+recipe-06,FSH-001,Tuna,From he ocean to your table,"Cook the fish over low heat for half an hour, it will be delicious",,quantityingredient-06,chef-03

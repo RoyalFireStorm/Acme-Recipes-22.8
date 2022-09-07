@@ -1,10 +1,10 @@
-key,name,code,description,retailPrice,link
-ingredient-01,Patata,PTT-001,Tuberculo delicioso,EUR 0.99,
-ingredient-02,Carrot,VBD-023,Biennial plant that forms a rosette of leaves in autumn and winter.,GBP 0.80,https://es.wikipedia.org/wiki/Daucus_carota
-ingredient-03,Tomate,FR:TMT-300,"Fruta roja, perfecta para ensaladas y hamburguesas",EUR 1.50,
-ingredient-04,Pineapple,FR:PPN-299,The famous hawaiian pizza fruit,GBP 3.55,https://www.bigbasket.com/pd/10000156/fresho-pineapple-1-pc/
-ingredient-05,Chicken,CHK-123,The all-known meat flavour!,USD 5.00,
-ingredient-06,Tuna,FSH-001,From the ocean to your table,USD 20.00,
-ingredient-07,Caviar,HD:SSS-999,One of the most expensive product of our catalogue,USD 590.00,
-ingredient-08,Cerdo,JAB-123,Cerdo iberico de bellota,EUR 50.59,https://www.ibericosvazquez.es/carnes-cerdo-iberico.php
-ingredient-09,Tea,TEA-478,"Green tea, perfect for a snack",GBP 1.50,
+key,name,code,description,retailPrice,link,key:chef
+ingredient-01,Patata,PTT-001,Tuberculo delicioso,EUR 0.99,,chef-02
+ingredient-02,Carrot,VBD-023,Biennial plant that forms a rosette of leaves in autumn and winter.,GBP 0.80,https://es.wikipedia.org/wiki/Daucus_carota,chef-02
+ingredient-03,Tomate,FR:TMT-300,"Fruta roja, perfecta para ensaladas y hamburguesas",EUR 1.50,,chef-02
+ingredient-04,Pineapple,FR:PPN-299,The famous hawaiian pizza fruit,GBP 3.55,https://www.bigbasket.com/pd/10000156/fresho-pineapple-1-pc/,chef-02
+ingredient-05,Chicken,CHK-123,The all-known meat flavour!,USD 5.00,,chef-01
+ingredient-06,Tuna,FSH-001,From the ocean to your table,USD 20.00,,chef-03
+ingredient-07,Caviar,HD:SSS-999,One of the most expensive product of our catalogue,USD 590.00,,chef-03
+ingredient-08,Cerdo,JAB-123,Cerdo iberico de bellota,EUR 50.59,https://www.ibericosvazquez.es/carnes-cerdo-iberico.php,chef-01
+ingredient-09,Tea,TEA-478,"Green tea, perfect for a snack",GBP 1.50,,chef-03

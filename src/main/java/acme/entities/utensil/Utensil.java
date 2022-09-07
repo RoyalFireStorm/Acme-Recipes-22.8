@@ -1,6 +1,8 @@
 package acme.entities.utensil;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -9,6 +11,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
+import acme.roles.Chef;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -45,4 +48,8 @@ public class Utensil extends AbstractEntity{
 
 		// Relationships ----------------------------------------------------------
 
+		@Valid
+		@NotNull
+		@ManyToOne(optional=false)
+		protected Chef chef;
 }

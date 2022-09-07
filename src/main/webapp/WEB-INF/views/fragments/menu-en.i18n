@@ -68,6 +68,12 @@ master.menu.employer.my-applications = List my applications
 master.menu.epicure=Epicure
 master.menu.epicure.dashboard = Dashboard
 
+# master.menu.chef ########################################################
+master.menu.chef=Chef
+master.menu.chef.ingredients=Your ingredients
+master.menu.chef.utensils=Your utensils
+master.menu.chef.recipes=Your recipes
+
 # master.menu.worker ##########################################################
 
 master.menu.worker = Worker

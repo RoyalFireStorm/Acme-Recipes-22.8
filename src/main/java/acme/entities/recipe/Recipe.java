@@ -10,6 +10,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.AbstractEntity;
+import acme.roles.Chef;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -50,4 +51,9 @@ public class Recipe extends AbstractEntity{
 		@NotNull
 		@ManyToOne(optional=false)
 		protected QuantityIngredient quantityIngredient;
+		
+		@Valid
+		@NotNull
+		@ManyToOne(optional=false)
+		protected Chef chef;
 }
