@@ -8,6 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-any.user.list.label.username =Usuario
-any.user.list.label.email =Correo Electrónico
-any.user.list.label.role =Roles
+any.peep.label.moment =Momento
+any.peep.label.heading =Cabecera
+any.peep.label.writer =Escritor
+any.peep.label.text =Texto
+any.peep.label.email =Correo Electrónico
