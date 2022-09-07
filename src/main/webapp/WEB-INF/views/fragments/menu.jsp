@@ -19,6 +19,7 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.any.user-account.list" action="/any/user-account/list"/>
+		<acme:menu-option code="master.menu.any.peep.list" action="/any/peep/list"/>
 		<acme:menu-option code="master.menu.any.product" >
 			<acme:menu-suboption code="master.menu.any.utensil" action="/any/utensil/list"/>
 			<acme:menu-suboption code="master.menu.any.ingredient" action="/any/ingredient/list"/>

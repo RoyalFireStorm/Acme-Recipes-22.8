@@ -20,6 +20,7 @@ master.menu.any.product=Productos
 master.menu.any.user-account.list = Cuentas de Usuario
 master.menu.any.utensil=Lista de utensilios de cocina
 master.menu.any.ingredient=Lista de ingredientes
+master.menu.any.peep.list= Lista de píos
 
 # master.menu.anonymous #######################################################
 master.menu.anonymous = Anónimo

@@ -1,4 +1,4 @@
-# i18n_es.messages
+# i18n_en.messages
 #
 # Copyright (C) 2012-2021 Rafael Corchuelo.
 #
@@ -8,6 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-any.user.list.label.username =Usuario
-any.user.list.label.email =Correo Electrónico
-any.user.list.label.role =Roles
+any.peep.label.moment =Moment
+any.peep.label.heading =Heading
+any.peep.label.writer =Writer
+any.peep.label.text =Text
+any.peep.label.email =Email
