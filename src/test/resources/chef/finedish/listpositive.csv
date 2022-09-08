@@ -1,0 +1,4 @@
+recordIndex,status,code,request,budget,startDate,endDate,username,recipe,link
+1,PROPOSED,DF:ASD-123,I will love if you made me this meal,EUR 120.00,2022/10/30 10:00,2022/11/30 22:00,epicure01,Chicken Wings,
+2,PROPOSED,DF:ASD-124,Another request,EUR 150.00,2023/01/01 10:00,2023/02/02 22:00,epicure01,Chicken Wings,
+0,DENIED,LMO-112,Patatas para el camino,USD 7.99,2022/09/30 22:00,2022/11/30 22:00,epicure02,Patatas gajo al horno,

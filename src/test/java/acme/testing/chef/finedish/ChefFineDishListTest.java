@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.testing.chef.recipe;
+package acme.testing.chef.finedish;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,29 +19,35 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.TestHarness;
 
 
-public class AnyRecipeListTest extends TestHarness {
+public class ChefFineDishListTest extends TestHarness {
 	
 	// Lifecycle management ---------------------------------------------------
 	
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources="/any/recipe/listpositive.csv", encoding="utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources="/chef/finedish/listpositive.csv", encoding="utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void AnyRecipeListPositiveTest (final int recordIndex, final String code, final String heading, final String description, final String notes, final String link, final String ingredient, final String utensil) {
+	public void ChefUtensilListPositiveTest (final int recordIndex, final String status, final String code, final String request, final String budget, final String startDate,
+			final String endDate, final String username, final String recipe, final String link) {
+		super.signIn("chef01", "chef01");
 		super.navigateHome();
-		super.clickOnMenu("Products","Recipe list");		
+		super.clickOnMenu("Chef", "Your fine dishes");		
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
 		//Check Listing Work Properly
-		super.checkColumnHasValue(recordIndex, 0, code);
-		super.checkColumnHasValue(recordIndex, 1, heading);
-		super.checkColumnHasValue(recordIndex, 2, description);
-		super.checkColumnHasValue(recordIndex, 3, notes);
-		super.checkColumnHasValue(recordIndex, 4, link);
-		super.checkColumnHasValue(recordIndex, 5, ingredient);
-		super.checkColumnHasValue(recordIndex, 6, utensil);
+		super.checkColumnHasValue(recordIndex, 0, status);
+		super.checkColumnHasValue(recordIndex, 1, code);
+		super.checkColumnHasValue(recordIndex, 2, request);
+		super.checkColumnHasValue(recordIndex, 3, budget);
+		super.checkColumnHasValue(recordIndex, 4, startDate);
+		super.checkColumnHasValue(recordIndex, 5, endDate);
+		super.checkColumnHasValue(recordIndex, 6, username);
+		super.checkColumnHasValue(recordIndex, 7, recipe);
+		super.checkColumnHasValue(recordIndex, 8, link);
+		
+		super.signOut();
 		
 		
 	}

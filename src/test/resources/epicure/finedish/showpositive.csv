@@ -1,0 +1,4 @@
+recordIndex,status,code,request,budget,startDate,endDate,username,recipe,link,organisation,assertion,epicureLink,email
+1,PROPOSED,DF:ASD-123,I will love if you made me this meal,EUR 120.00,2022/10/30 10:00,2022/11/30 22:00,chef01,Chicken Wings,,Meat Lovers,Winner of Best Roast Beef in the World,,chef1@mail.com
+2,PROPOSED,DF:ASD-124,Another request,EUR 150.00,2023/01/01 10:00,2023/02/02 22:00,chef01,Chicken Wings,,Meat Lovers,Winner of Best Roast Beef in the World,,chef1@mail.com
+0,DENIED,QUE-334,¿Me das ketchup?,GBP 0.23,2024/11/30 14:00,2024/12/30 14:00,chef02,Ketchup casero,https://www.heinz.es/salsas/ketchup/product/100194200001/tomato-ketchup,Vegan power,5 years of experience in the vegan cuisine,,chef2@mail.com,

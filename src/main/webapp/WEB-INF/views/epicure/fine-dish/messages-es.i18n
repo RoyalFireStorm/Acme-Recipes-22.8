@@ -1,0 +1,24 @@
+# i18n_es.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+epicure.finedish.label.status=Estatus
+epicure.finedish.label.code=Código
+epicure.finedish.label.request=Solicitud
+epicure.finedish.label.budget=Presupuesto
+epicure.finedish.label.startDate=Fecha de inicio
+epicure.finedish.label.endDate=Fecha de fin
+epicure.finedish.label.link=Enlace
+epicure.finedish.label.recipe=Receta
+epicure.finedish.label.chef=Datos del Cocinero
+epicure.finedish.label.chef.username=Usuario
+epicure.finedish.label.chef.organisation=Organización
+epicure.finedish.label.chef.assertion=Aserción
+epicure.finedish.label.chef.link=Link Organización
+epicure.finedish.label.chef.email=Correo
