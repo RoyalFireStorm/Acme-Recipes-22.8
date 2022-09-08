@@ -19,18 +19,19 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.TestHarness;
 
 
-public class AnyIngredientListShowTTest extends TestHarness {
+public class ChefIngredientListShowTest extends TestHarness {
 	
 	// Lifecycle management ---------------------------------------------------
 	
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources="/any/ingredient/listpositive.csv", encoding="utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources="/chef/ingredient/listpositive.csv", encoding="utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void AnyIngredientListShowTPositiveTest (final int recordIndex, final String name, final String code, final String description, final String retailPrice, final String link) {
+	public void ChefIngredientListShowTPositiveTest (final int recordIndex, final String name, final String code, final String description, final String retailPrice, final String link) {
+		super.signIn("chef01", "chef01");
 		super.navigateHome();
-		super.clickOnMenu("Products", "Ingredients list");		
+		super.clickOnMenu("Chef", "Your ingredients");		
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
@@ -50,10 +51,11 @@ public class AnyIngredientListShowTTest extends TestHarness {
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("link", link);
 		
-		
+		super.signOut();
 		
 	}
 	
 	// Ancillary methods ------------------------------------------------------ 
 	
 }
+

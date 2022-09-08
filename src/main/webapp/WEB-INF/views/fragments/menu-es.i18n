@@ -40,12 +40,14 @@ master.menu.authenticated.system-configurator.show=Divisa
 # master.menu.epicure ########################################################
 master.menu.epicure=Sibarita
 master.menu.epicure.dashboard = Dashboard
+master.menu.epicure.finedish=Tus platos finos
 
 # master.menu.chef ########################################################
 master.menu.chef=Cocinero
 master.menu.chef.ingredients=Tus ingredientes
 master.menu.chef.utensils=Tus utensilios
 master.menu.chef.recipes=Tus recetas
+master.menu.chef.finedish=Tus platos finos
 
 # master.menu.administrator ###################################################
 

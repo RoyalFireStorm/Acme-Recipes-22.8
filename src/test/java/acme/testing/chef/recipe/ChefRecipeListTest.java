@@ -19,32 +19,32 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.TestHarness;
 
 
-public class AnyRecipeShowTest extends TestHarness {
+public class ChefRecipeListTest extends TestHarness {
 	
 	// Lifecycle management ---------------------------------------------------
 	
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources="/any/recipe/showpositive.csv", encoding="utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources="/chef/recipe/listpositive.csv", encoding="utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void AnyRecipeShowPositiveTest (final int recordIndex, final String code, final String heading, final String description, final String notes, final String link, final String ingredientQ,final String ingredientN, final String utensil) {
+	public void AnyRecipeListPositiveTest (final int recordIndex, final String code, final String heading, final String description, final String notes, final String link, final String ingredient, final String utensil) {
+		super.signIn("chef01", "chef01");
 		super.navigateHome();
-		super.clickOnMenu("Products","Recipe list");		
+		super.clickOnMenu("Chef","Your recipes");		
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
-		//Check Showing Work Properly
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("heading", heading);
-		super.checkInputBoxHasValue("description", description);
-		super.checkInputBoxHasValue("notes", notes);
-		super.checkInputBoxHasValue("link", link);
-		super.checkInputBoxHasValue("quantityIngredient", ingredientQ);
-		super.checkInputBoxHasValue("quantityIngredient.ingredient.name", ingredientN);
-		//super.checkInputBoxHasValue("mapUtensil", utensil);
+		//Check Listing Work Properly
+		super.checkColumnHasValue(recordIndex, 0, code);
+		super.checkColumnHasValue(recordIndex, 1, heading);
+		super.checkColumnHasValue(recordIndex, 2, description);
+		super.checkColumnHasValue(recordIndex, 3, notes);
+		super.checkColumnHasValue(recordIndex, 4, link);
+		super.checkColumnHasValue(recordIndex, 5, ingredient);
+		super.checkColumnHasValue(recordIndex, 6, utensil);
+		
+		super.signOut();
 		
 	}
 	
